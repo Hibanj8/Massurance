@@ -19,7 +19,7 @@ Personnalisez votre portfolio et votre expérience utilisateur selon vos goûts 
 1. **Clônez** ce dépôt sur votre machine locale.
 2. **Installez** les dépendances avec `npm install`.
 3. **Lancez** le serveur de développement avec `npm run dev`.
-4. **Explorez** Massurance sur [http://localhost:3000](http://localhost:3000).
+4. **Explorez** Massurance sur [https://massurance.vercel.app/](https://massurance.vercel.app/).
 
 ## 🌟 En Savoir Plus
 
@@ -41,3 +41,5 @@ Pour toute question, suggestion ou problème, n'hésitez pas à nous contacter �
 
 Merci d'avoir choisi Massurance pour donner vie à votre portfolio et simplifier la gestion de vos rendez-vous. Ensemble, allons plus loin !
 
+# ✍ Authors
+ @Hiba_NAJI - Idea & Initial work
