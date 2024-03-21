@@ -35,7 +35,7 @@ Déployez votre propre instance de Massurance en un clin d'œil grâce à notre 
 
 ## 📞 Contact
 
-Pour toute question, suggestion ou problème, n'hésitez pas à nous contacter à [contact@massurance.com]. Nous sommes là pour vous aider !
+Pour toute question, suggestion ou problème, n'hésitez pas à nous contacter à [massurance55@gmail.com]. Nous sommes là pour vous aider !
 
 ## 🙏 Merci
 
