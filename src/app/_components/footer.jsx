@@ -56,7 +56,7 @@ const Footer = () => {
                       </defs>
                     </svg>
                   </span>
-                  <span>+212 682 354 422</span>
+                  <a href="tel:0682354422"><span>+212 682 354 422</span></a>
                 </p>
               </div>
             </div>

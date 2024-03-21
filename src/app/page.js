@@ -3,6 +3,7 @@ import Home from "./home/page";
 import Portfolio from "./project/page";
 import Service from "./services/page";
 import Contact from "./contacts/page";
+import RendezVousForm from "./rendez-vous/page";
 
 export default function Page() {
   return (
@@ -10,6 +11,7 @@ export default function Page() {
       <Home />
       <Portfolio />
       <Service />
+      <RendezVousForm></RendezVousForm>
       <Contact />
     </>
   );

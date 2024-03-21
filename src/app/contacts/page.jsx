@@ -11,12 +11,13 @@ const Contact = () => {
               <div className="mb-12 max-w-[570px] lg:mb-0">
 
                 <h2 className="mb-6 text-[32px] font-bold uppercase text-white sm:text-[40px] lg:text-[36px] xl:text-[40px]">
-                  GET IN TOUCH WITH US
+                  Nous Contacter
                 </h2>
                 <p className="mb-9 text-base leading-relaxed text-body-color text-white">
-                  Have questions, ideas, or a project you'd like to discuss?
-                  We're here for you! Use our contact form to send us a message
-                  or explore other ways to get in touch.
+                  Besoin d'Aide ou d'Informations Supplémentaires ? <br />
+                  Que vous ayez des questions, des suggestions ou que vous souhaitiez discuter d'un projet,
+                  notre équipe est à votre écoute.
+                  N'hésitez pas à nous contacter via notre formulaire de contact ci-dessous ou à explorer les autres moyens de nous joindre.
                 </p>
                 <div className="mb-8 flex w-full max-w-[370px] text-white">
                   <div className=" text-[#D0E153] mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-primary/5 text-primary sm:h-[70px] sm:max-w-[70px]">
@@ -35,7 +36,7 @@ const Contact = () => {
                   </div>
                   <div className="w-full ">
                     <h4 className="mb-1 text-xl font-bold text-white">
-                      Our Location
+                      Notre Localisation
                     </h4>
                     <p className="text-base text-body-color text-dark-6">
                       99 S.t Jomblo Park Bourgonne 28292. Morocco
@@ -75,11 +76,11 @@ const Contact = () => {
                   </div>
                   <div className="w-full">
                     <h4 className="mb-1 text-xl font-bold text-dark dark:text-white">
-                      Phone Number
+                      Numero de telephone
                     </h4>
-                    <p className="text-base text-body-color dark:text-dark-6">
-                      (+212)6 82 35 44 22
-                    </p>
+                    <a href="tel:0659063386" className="text-base text-body-color dark:text-dark-6">
+                      (+212)6 59 06 33 86
+                    </a>
                   </div>
                 </div>
 
@@ -100,10 +101,10 @@ const Contact = () => {
                   </div>
                   <div className="w-full">
                     <h4 className="mb-1 text-xl font-bold text-white">
-                      Email Address
+                      Address Email
                     </h4>
                     <p className="text-base text-body-color dark:text-dark-6">
-                      techinnov@gmail.com
+                      massurance55@gmail.com
                     </p>
                   </div>
                 </div>
@@ -113,26 +114,26 @@ const Contact = () => {
               <div className="relative rounded-lg bg-white p-8 shadow-lg dark:bg-dark-2 sm:p-12">
                 <form>
                   <span className="mb-4 block font-semibold text-primary text-[#021027] text-xl">
-                    Contact Us
+                    Contacter-nous
                   </span>
                   <ContactInputBox
                     type="text"
                     name="name"
-                    placeholder="Your Name"
+                    placeholder="Votre nom"
                   />
                   <ContactInputBox
                     type="text"
                     name="email"
-                    placeholder="Your Email"
+                    placeholder="Votre prénom"
                   />
                   <ContactInputBox
                     type="text"
                     name="phone"
-                    placeholder="Your Phone"
+                    placeholder="Votre numero"
                   />
                   <ContactTextArea
                     row="6"
-                    placeholder="Your Message"
+                    placeholder="Votre message"
                     name="details"
                     defaultValue=""
                   />
@@ -141,7 +142,7 @@ const Contact = () => {
                       type="submit"
                       className="w-full rounded border border-primary bg-[#d0e15396] p-3 text-[#000815] transition hover:bg-[#D0E153]"
                     >
-                      Send Message
+                      Envoyer
                     </button>
                   </div>
                 </form>

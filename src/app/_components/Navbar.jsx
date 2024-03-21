@@ -41,10 +41,16 @@ const Navbar = () => {
                   } `}
               >
                 <ul className="blog lg:flex ms-10">
-                  <ListItem NavLink="/home">Home</ListItem>
-                  <ListItem NavLink="/project">Projects</ListItem>
-                  <ListItem NavLink="/services">Services</ListItem>
-                  <ListItem NavLink="/contacts">Contact Us</ListItem>
+                  <ListItem NavLink="/" className="flex py-2 text-base font-medium text-white bg-transparent transition duration-300 ease-in-out hover:text-[#D0E153] lg:ml-12 lg:inline-flex"
+                  >Home</ListItem>
+                  <ListItem NavLink="/project" className="flex py-2 text-base font-medium text-white bg-transparent transition duration-300 ease-in-out hover:text-[#D0E153] lg:ml-12 lg:inline-flex"
+                  >Projects</ListItem>
+                  <ListItem NavLink="/services" className="flex py-2 text-base font-medium text-white bg-transparent transition duration-300 ease-in-out hover:text-[#D0E153] lg:ml-12 lg:inline-flex"
+                  >Services</ListItem>
+                  <ListItem NavLink="/contacts" className="flex py-2 text-base font-medium text-white bg-transparent transition duration-300 ease-in-out hover:text-[#D0E153] lg:ml-12 lg:inline-flex"
+                  >Contact Us</ListItem>
+                  <ListItem NavLink="/rendez-vous" className="flex  rounded-md bg-[#25416e] px-3 py-3 text-center text-base ml-8 font-medium text-white hover:bg-[#25416ead] hover:text-white duration-500 lg:px-7x"
+                  >Rendez-vous</ListItem>
                 </ul>
               </nav>
             </div>
@@ -57,13 +63,13 @@ const Navbar = () => {
 
 export default Navbar;
 
-const ListItem = ({ children, NavLink }) => {
+const ListItem = ({ children, NavLink, className }) => {
   return (
     <>
       <li>
         <Link
           href={NavLink}
-          className="flex py-2 text-base font-medium text-white bg-transparent transition duration-300 ease-in-out hover:text-[#D0E153] lg:ml-12 lg:inline-flex"
+          className={className}
         >
           {children}
         </Link>

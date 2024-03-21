@@ -5,26 +5,26 @@ const Portfolio = () => {
   const [showCard, setShowCard] = useState("all");
 
   const handleProject = (category) => {
-    setShowCard(category);
+    setShowCard(category.toLowerCase());
   };
 
   return (
     <>
- <div
-        className="relative pb-[110px] pt-[120px] dark:bg-dark lg:pt-[150px]"
-      >   <div className="container mx-auto">
+      <div className="relative pb-[110px] pt-[120px] lg:pt-[150px]">
+        <div className="container mx-auto">
           <div className="flex flex-wrap -mx-4">
             <div className="w-full px-4">
               <div className="mx-auto mb-[60px] max-w-[510px] text-center">
                 <span className="text-[#D0E153] mb-2 block text-lg font-semibold">
-                  Our Portfolio
+                  Notre Portfolio
                 </span>
                 <h2 className="text-white mb-3 text-3xl leading-[1.208] font-bold sm:text-4xl md:text-[40px]">
-                  Our Recent Projects
+                  Nos nouveaux projet
                 </h2>
                 <p className="text-body-color text-base text-white">
-                Discover our diverse portfolio that highlights the exciting projects we've undertaken. 
-                Each project is a success story, a unique collaboration between our team and our clients.
+                  Explorez notre portefeuille diversifié de projets passionnants.
+                  Chaque projet est une réussite, fruit d'une collaboration unique entre notre équipe et nos clients.
+                  Chez Massurance, nous vous offrons des solutions d'assurance sur mesure pour répondre à vos besoins spécifiques.
                 </p>
               </div>
             </div>
@@ -47,39 +47,39 @@ const Portfolio = () => {
                 </li>
                 <li className="mb-1">
                   <button
-                    onClick={() => handleProject("branding")}
+                    onClick={() => handleProject("Assurance automobile")}
                     className={`inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8 ${
-                      showCard === "branding"
+                      showCard === "assurance automobile"
                         ? "activeClasses bg-primary text-[#D0E153]"
                         : "inactiveClasses text-body-color text-white hover:bg-primary hover:text-[#D0E153]"
                     }`}
                   >
-                    Branding
+                    Assurance automobile
                   </button>
                 </li>
                 <li className="mb-1">
                   <button
-                    onClick={() => handleProject("design")}
+                    onClick={() => handleProject("Assurance habitation")}
                     className={`inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8 ${
-                      showCard === "design"
+                      showCard === "assurance habitation"
                         ? "activeClasses bg-primary text-[#D0E153]"
                         : "inactiveClasses text-body-color text-white hover:bg-primary hover:text-[#D0E153]"
                     }`}
                   >
-                    Design
+                    Assurance habitation
                   </button>
                 </li>
               
                 <li className="mb-1">
                   <button
-                    onClick={() => handleProject("development")}
+                    onClick={() => handleProject("Assurance santé")}
                     className={`inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8 ${
-                      showCard === "development"
+                      showCard === "assurance santé"
                         ? "activeClasses bg-primary text-[#D0E153]"
                         : "inactiveClasses text-body-color text-white hover:bg-primary hover:text-[#D0E153]"
                     }`}
                   >
-                    Development
+                    Assurance santé
                   </button>
                 </li>
               </ul>
@@ -87,27 +87,27 @@ const Portfolio = () => {
           </div>
           <div className="flex flex-wrap -mx-4">
             <PortfolioCard
-              ImageHref="https://i.ibb.co/64WfFPt/image-01.jpg"
-              category="Branding"
+              ImageHref="/img-projet/img-automobile.jpg"
+              category="Assurance automobile"
               title="Creative Agency"
               button="View Details"
-              buttonHref="/services"
+              buttonHref="/project/automobile"
               showCard={showCard}
             />
             <PortfolioCard
-              ImageHref="https://i.ibb.co/3FKqS1G/image-03.jpg"
-              category="Development"
+              ImageHref="/img-projet/img-sante.jpg"
+              category="Assurance santé"
               title="Creative Agency"
               button="View Details"
-              buttonHref="#"
+              buttonHref="/project/sante"
               showCard={showCard}
             />
             <PortfolioCard
-              ImageHref="https://i.ibb.co/m6dq2fX/image-04.jpg"
-              category="Design"
+              ImageHref="/img-projet/img-maison.jpg"
+              category="Assurance habitation"
               title="Creative Agency"
               button="View Details"
-              buttonHref="#"
+              buttonHref="/project/habitation"
               showCard={showCard}
             />
           </div>
