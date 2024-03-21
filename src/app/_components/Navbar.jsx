@@ -37,7 +37,7 @@ const Navbar = () => {
               <nav
                 // :className="!navbarOpen && 'hidden' "
                 id="navbarCollapse"
-                className={`absolute right-4 top-full w-full max-w-[350px] rounded-lg bg-[#021027]/80 px-6 py-5 shadow dark:bg-dark-2 lg:static lg:block lg:w-full lg:max-w-full lg:shadow-none lg:dark:bg-transparent ${!open && "hidden"
+                className={`absolute right-4 top-full w-full max-w-[350px] rounded-lg bg-[#021027] px-6 py-5 shadow dark:bg-dark-2 lg:static lg:block lg:w-full lg:max-w-full lg:shadow-none lg:dark:bg-transparent ${!open && "hidden"
                   } `}
               >
                 <ul className="blog lg:flex ms-10">
