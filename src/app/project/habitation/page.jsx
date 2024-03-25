@@ -58,7 +58,7 @@ const SingleTestimonial = ({
 }) => {
     return (
         <div className="relative flex justify-center ">
-            <div className="relative w-full pb-16 md:w-11/12 lg:w-10/12 xl:w-8/12 bg-white rounded-xl shadow-white shadow-lg">
+            <div className="relative w-full pb-16 md:w-11/12 lg:w-10/12 xl:w-8/12 bg-white rounded-xl shadow-white shadow-lg p-12 mt-12">
                 <div className="w-full items-center md:flex">
                     <div className="relative mb-12 w-full max-w-[310px] md:mb-0 md:mr-12 md:max-w-[250px] lg:mr-14 lg:max-w-[280px] 2xl:mr-16">
                         <img src={image} alt="image" className=" ml-3 w-full rounded-xl shadow-lg shadow-slate-700" />
