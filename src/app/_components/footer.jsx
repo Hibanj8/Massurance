@@ -1,11 +1,20 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 const Footer = () => {
+
+  const path = usePathname();
+
+  // Check if the current path includes '/dashbordSuperAdmin/'
+  const hideFooter = path.includes('/dashbordSuperAdmin/');
+
   return (
     <>
-      <footer className="relative z-10 backdrop-blur-lg bg-black/30 flex flex-col items-center w-full pt-10 lg:pt-5 px-4 lg:px-24">
+      <footer className={`${hideFooter ? 'hidden' : 'flex'} relative z-10 backdrop-blur-lg bg-black/30 flex flex-col items-center w-full pt-10 lg:pt-5 px-4 lg:px-24`}>
         <div className="container">
           <div className="-mx-4 flex">
             <div className="w-full px-4 sm:w-2/3 lg:w-3/12">

@@ -2,18 +2,23 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const path = usePathname();
+
+  // Check if the current path includes '/dashbordSuperAdmin/'
+  const hideNavbar = path.includes('/dashbordSuperAdmin/');
 
   return (
-    <header className={`flex w-screen items-center bg-dark mb-5`}>
+    <header className={`${hideNavbar ? 'hidden' : 'flex'} flex w-screen items-center bg-dark mb-5`}>
       <div className="container ">
         <div className="fixed z-20 backdrop-blur-lg bg-black/30 flex flex-wrap items-center justify-between w-full gap-x-80 p-9 lg:p-0 px-4 lg:px-20 ">
           <div className="flex items-center flex-shrink-0 mr-6 ">
             <Link href="/" className="lg:w-full">
-              <Image className="w-24 "
+              <Image className="w-24"
                 src="/logo.png"
                 alt="logo"
                 width={900}
