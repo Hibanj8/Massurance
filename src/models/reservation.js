@@ -12,13 +12,11 @@ const RendezVousSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
-        unique: true,
         match: /^\S+@\S+\.\S+$/,
     },
     phone: {
         type: String,
         required: true,
-        unique: true,
         match: /^\d{10}$/,
     },
     date: {

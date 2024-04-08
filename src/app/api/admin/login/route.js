@@ -8,6 +8,9 @@ export async function POST(request) {
         await connexion()
         const { email, password } = await request.json();
         try {
+            if (!password || !email) {
+                return NextResponse.json({ message: "email or Password is not valid" }, {status:'400'});
+            }
             const admin = await Admin.findOne({ email });
             const passwordIsValid = await bcrypt.compare(password, admin.password)
             if (!admin || !passwordIsValid) {
@@ -16,7 +19,7 @@ export async function POST(request) {
             }
 
             const token = createToken(admin);
-            return NextResponse.json({ token }, {status:'200'});
+            return NextResponse.json({ token , id:admin._id}, {status:'200'});
             
         } catch (error) {
             console.error('Error logging in:', error);

@@ -17,7 +17,7 @@ export default function Layout({ children }) {
             {/* <Sidebar isShow={isShow} onShow={handleToggleSidebar} /> */}
             <Sidebar/>
             <div className="flex flex-col flex-grow w-full">
-                <div className="bg-slate-200 min-h-screen overflow-auto">
+                <div className="bg-slate-300 min-h-screen overflow-auto">
                     {children}
                 </div>
             </div>

@@ -1,15 +1,43 @@
-import React from "react";
+"use client"
+import React, { useState } from "react";
+import { useDispatch } from 'react-redux';
+import { createContact } from '../../store/contact/ContactThunks.js'; 
 
 const Contact = () => {
+  const dispatch = useDispatch();
+  const [contactData, setContactData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: ""
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setContactData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(createContact(contactData));
+    setContactData({
+      name: "",
+      email: "",
+      phone: "",
+      message: ""
+    });
+  };
+
   return (
     <>
-      <div
-        className="relative pb-[110px] pt-[120px] dark:bg-dark lg:pt-[150px] lg:ml-24 "
-      > <div className="container">
+      <div className="relative pb-[110px] pt-[120px] dark:bg-dark lg:pt-[150px] lg:ml-24">
+        <div className="container">
           <div className="-mx-4 flex flex-wrap lg:justify-between">
             <div className="w-full px-4 lg:w-1/2 xl:w-6/12 ">
               <div className="mb-12 max-w-[570px] lg:mb-0">
-
                 <h2 className="mb-6 text-[32px] font-bold uppercase text-white sm:text-[40px] lg:text-[36px] xl:text-[40px]">
                   Nous Contacter
                 </h2>
@@ -73,6 +101,7 @@ const Contact = () => {
                         </clipPath>
                       </defs>
                     </svg>
+                
                   </div>
                   <div className="w-full">
                     <h4 className="mb-1 text-xl font-bold text-dark dark:text-white">
@@ -98,6 +127,7 @@ const Contact = () => {
                         fill="currentColor"
                       />
                     </svg>
+                  
                   </div>
                   <div className="w-full">
                     <h4 className="mb-1 text-xl font-bold text-white">
@@ -109,10 +139,10 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> 
             <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
               <div className="relative rounded-lg bg-white p-8 shadow-lg dark:bg-dark-2 sm:p-12">
-                <form>
+                <form onSubmit={handleSubmit}>
                   <span className="mb-4 block font-semibold text-primary text-[#021027] text-xl">
                     Contacter-nous
                   </span>
@@ -120,22 +150,29 @@ const Contact = () => {
                     type="text"
                     name="name"
                     placeholder="Votre nom"
+                    value={contactData.name}
+                    onChange={handleChange}
                   />
                   <ContactInputBox
-                    type="text"
+                    type="email" // Assurez-vous d'utiliser le bon type pour l'email
                     name="email"
-                    placeholder="Votre prénom"
+                    placeholder="Votre email" // Mis à jour pour correspondre à l'input
+                    value={contactData.email}
+                    onChange={handleChange}
                   />
                   <ContactInputBox
                     type="text"
                     name="phone"
                     placeholder="Votre numero"
+                    value={contactData.phone}
+                    onChange={handleChange}
                   />
                   <ContactTextArea
                     row="6"
                     placeholder="Votre message"
-                    name="details"
-                    defaultValue=""
+                    name="message"
+                    value={contactData.message}
+                    onChange={handleChange}
                   />
                   <div>
                     <button
@@ -155,35 +192,34 @@ const Contact = () => {
   );
 };
 
+const ContactInputBox = ({ type, placeholder, name, value, onChange }) => {
+  return (
+    <div className="mb-6 pr-8">
+      <input
+        type={type}
+        placeholder={placeholder}
+        name={name}
+        value={value}
+        onChange={onChange}
+        className="w-full rounded border border-stroke px-[14px] py-3 text-base text-body-color outline-none focus:border-primary dark:border-dark-3 dark:bg-dark dark:text-dark-6"
+      />
+    </div>
+  );
+};
+
+const ContactTextArea = ({ row, placeholder, name, value, onChange }) => {
+  return (
+    <div className="mb-6">
+      <textarea
+        rows={row}
+        placeholder={placeholder}
+        name={name}
+        value={value}
+        onChange={onChange}
+        className="w-full resize-none rounded border border-stroke px-[14px] py-3 text-base text-body-color outline-none focus:border-primary dark:border-dark-3 dark:bg-dark dark:text-dark-6"
+      />
+    </div>
+  );
+};
+
 export default Contact;
-
-const ContactTextArea = ({ row, placeholder, name, defaultValue }) => {
-  return (
-    <>
-      <div className="mb-6">
-        <textarea
-          rows={row}
-          placeholder={placeholder}
-          name={name}
-          className="w-full resize-none rounded border border-stroke px-[14px] py-3 text-base text-body-color outline-none focus:border-primary dark:border-dark-3 dark:bg-dark dark:text-dark-6"
-          defaultValue={defaultValue}
-        />
-      </div>
-    </>
-  );
-};
-
-const ContactInputBox = ({ type, placeholder, name }) => {
-  return (
-    <>
-      <div className="mb-6 pr-8">
-        <input
-          type={type}
-          placeholder={placeholder}
-          name={name}
-          className="w-full rounded border border-stroke px-[14px] py-3 text-base text-body-color outline-none focus:border-primary dark:border-dark-3 dark:bg-dark dark:text-dark-6"
-        />
-      </div>
-    </>
-  );
-};

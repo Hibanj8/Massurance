@@ -10,14 +10,17 @@ dotenv.config();
 export async function POST(request) {
 
     await connexion();
-    try {
-        const { fName, lName, email, phone, date, time, consultationType } = await request.json();
-        const newRendezVous = await RendezVous.create({ fName, lName, email, phone, date, time, consultationType });
-        sendReservationEmail(email, { fName, lName, phone, date, time, consultationType });
-        return NextResponse.json({ message: "Rendez-vous créé avec succès", data: newRendezVous }, { status: 201 });
-    } catch (error) {
-        return NextResponse.json({ message: error.message }, { status: 400 });
-    }
+        try {
+            const { fName, lName, email, phone, date, time, consultationType } = await request.json();
+
+            const newRendezVous = await RendezVous.create({ fName, lName, email, phone, date, time, consultationType });
+            
+            sendReservationEmail(email, { fName, lName, phone, date, time, consultationType });
+            
+            return NextResponse.json({ message: "Rendez-vous créé avec succès", data: newRendezVous }, { status: 201 });
+        } catch (error) {
+            return NextResponse.json({ message: error.message }, { status: 400 });
+        }
 }
 
 export async function GET(request) {
@@ -38,27 +41,28 @@ export async function GET(request) {
 function sendReservationEmail(email, { fName, lName, phone, date, time, consultationType }) {
     console.log(fName, lName, email, phone, date, time, consultationType);
     const text = `
-Cher(e) ${fName} ${lName},<br><br>
+    Cher(e) ${fName} ${lName},
 
-Nous vous écrivons pour confirmer votre rendez-vous prévu. Voici les détails de votre rendez-vous :<br>
+    Nous vous écrivons pour confirmer votre rendez-vous prévu. Voici les détails de votre rendez-vous :
 
-- Type de consultation : ${consultationType}
-- Date : ${date}
-- Heure : ${time}
-- Nom : ${fName} ${lName}
-- Email : ${email}
-- Téléphone : ${phone}
+    - Type de consultation : ${consultationType}
+    - Date : ${date}
+    - Heure : ${time}
+    - Nom : ${fName} ${lName}
+    - Email : ${email}
+    - Téléphone : ${phone}
 
-Nous sommes impatients de vous rencontrer et de discuter ensemble. Votre rendez-vous a été confirmé avec succès. Si vous avez besoin de modifier ou d'annuler ce rendez-vous, veuillez nous contacter dès que possible à notre adresse email ou numéro de téléphone. <br>
+    Nous sommes impatients de vous rencontrer et de discuter ensemble. Votre rendez-vous a été confirmé avec succès. Si vous avez besoin de modifier ou d'annuler ce rendez-vous, veuillez nous contacter dès que possible à notre adresse email ou numéro de téléphone.
 
-Merci de choisir notre service. Nous sommes dédiés à vous fournir le meilleur service possible.<br>
+    Merci de choisir notre service. Nous sommes dédiés à vous fournir le meilleur service possible.
 
-Cordialement,<br><br>
+    Cordialement,
 
 
-Massurance<br>
-massurance55@gmail.com
-`;
+    Massurance
+    massurance55@gmail.com
+    `;
+
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
