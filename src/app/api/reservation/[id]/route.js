@@ -1,6 +1,6 @@
 import { verifyToken } from '@/middleware/admiMiddleware.js';
 import connexion from '../../../../../libs/connectiondb.js';
-import RendezVous from '../../../../models/reservation.js';
+import RendezVous from '@/models/RendezVous';
 import { NextResponse } from 'next/server';
 
 export async function GET(request , { params}) {
