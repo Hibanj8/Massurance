@@ -1,15 +1,15 @@
 import { verifyToken } from '@/middleware/admiMiddleware.js';
 import connexion from '../../../../../libs/connectiondb.js';
-import RendezVous from '../../../../../models/RendezVous';
+import RendezVous from '../../../../models/reservation.js';
 import { NextResponse } from 'next/server';
 
-export async function GET(request) {
+export async function GET(request , { params}) {
     try {
         await verifyToken(request);
     } catch (error) {
         return new Response(JSON.stringify({ message: error.message }), { status: error.status, headers: { 'Content-Type': 'application/json' } });
     }
-    const { id } = request.nextUrl.query;
+    const { id } = params;
     await connexion();
     try {
         const rendezvous = await RendezVous.findById(id);
@@ -42,20 +42,20 @@ export async function PUT(request) {
     }
 }
 
-export async function DELETE(request) {
+export async function DELETE(request , { params}) {
     try {
         await verifyToken(request);
     } catch (error) {
         return new Response(JSON.stringify({ message: error.message }), { status: error.status, headers: { 'Content-Type': 'application/json' } });
     }
-    const { id } = request.nextUrl.query;
+    const { id } = params;
     await connexion();
     try {
         const deletedRendezVous = await RendezVous.findByIdAndDelete(id);
         if (!deletedRendezVous) {
             return NextResponse.json({ message: "Rendez-vous non trouvé" }, { status: 404 });
         }
-        return NextResponse.json({ message: "Rendez-vous supprimé avec succès" }, { status: 204 });
+        return NextResponse.json({ message: "Rendez-vous supprimé avec succès" }, { status: 200 });
     } catch (error) {
         return NextResponse.json({ message: error.message }, { status: 400 });
     }

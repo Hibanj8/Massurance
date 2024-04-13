@@ -6,11 +6,11 @@ import { verifySuperAdmin , verifyToken } from '@/middleware/admiMiddleware';
 
 
 export async function GET(request , { params}) {
-    try {
-        await verifyToken(request);
-    } catch (error) {
-        return new Response(JSON.stringify({ message: error.message }), { status: error.status, headers: { 'Content-Type': 'application/json' } });
-    }
+    // try {
+    //     await verifyToken(request);
+    // } catch (error) {
+    //     return new Response(JSON.stringify({ message: error.message }), { status: error.status, headers: { 'Content-Type': 'application/json' } });
+    // }
     
     await connexion();
 

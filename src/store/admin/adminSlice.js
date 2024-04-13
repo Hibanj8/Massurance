@@ -4,24 +4,24 @@ const adminSlice = createSlice({
   name: 'admin',
   initialState: {
     id: null,
-    // username: "",
-    // email:"",
-    // role: "", 
+    name: "",
+    email:"",
+    role: "", 
     isAuthenticated: false,
   },
   reducers: {
     setAdmin: (state, action) => {
       state.id = action.payload.id;
-      state.username = action.payload.username;
-      // state.email = action.payload.email;
-      // state.role = action.payload.role;
+      state.name = action.payload.name;
+      state.email = action.payload.email;
+      state.role = action.payload.role;
       state.isAuthenticated = true;
     },
     logout: (state) => {
       state.id = null;
-      // state.username = "";
-      // state.email="",
-      // state.role = ""; 
+      state.name = "";
+      state.email="",
+      state.role = ""; 
       state.isAuthenticated = false;
     },
   },

@@ -4,7 +4,7 @@ import axios from "axios";
 import { useRouter } from 'next/navigation';
 import { useDispatch } from 'react-redux';
 import { setAdmin } from '../../store/admin/adminSlice.js';
-import { useCookies } from 'react-cookie';
+
 
 const handleRequestError = (error, setError) => {
     if (error.response && error.response.status === 400) {
@@ -17,7 +17,6 @@ const handleRequestError = (error, setError) => {
 };
 
 const Page = () => {
-    const [cookies, setCookies] = useCookies(["access_token"]);
     const router = useRouter();
     const dispatch = useDispatch();
     const [error, setError] = useState(null);
@@ -27,8 +26,15 @@ const Page = () => {
         e.preventDefault();
         try {
             const response = await axios.post('http://localhost:3000/api/admin/login', values);
-            setCookies("access_token", response.data.token); // Specify the path for the cookie
-            dispatch(setAdmin({ id: response.data.id }));
+            localStorage.setItem("access_token", response.data.token); 
+            const id = response.data.id
+            const userResponse = await axios.get(`http://localhost:3000/api/admin/${id}`);
+            const { name, email, role } = userResponse.data.message; 
+            dispatch(setAdmin({ id, name, email, role }));
+            console.log(id);
+            console.log(name);
+            console.log(email);
+            console.log(role);
             router.push('/dashbordSuperAdmin/rendezVous');
         } catch (error) {
             handleRequestError(error, setError);
