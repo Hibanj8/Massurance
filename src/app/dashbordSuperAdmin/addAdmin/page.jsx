@@ -29,7 +29,7 @@ const AddAdmin = () => {
   return (
     <div className="flex items-center justify-center h-screen ">
       <div className="container p-6 bg-white shadow-xl rounded-xl w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-6 text-blue-500">Create Admin</h1>
+        <h1 className="text-2xl font-bold mb-6 text-[#D0E153]">Create Admin</h1>
 
         <form onSubmit={handleAddAdmin} className="max-w-md mx-auto">
           <div className="mb-4">
@@ -91,12 +91,12 @@ const AddAdmin = () => {
             </select>
           </div>
 
-          <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
+          <button type="submit" className="bg-[#D0E153] text-white px-4 py-2 rounded-md hover:bg-[#99a53ed9]">
             Ajouter
           </button>
         </form>
         
-        <Link href="/dashbordSuperAdmin/admin" className="block text-center mt-4 text-blue-500 hover:underline">
+        <Link href="/dashbordSuperAdmin/admin" className="block text-center mt-4 text-[#D0E153] hover:underline">
           Retour
         </Link>
       </div>
