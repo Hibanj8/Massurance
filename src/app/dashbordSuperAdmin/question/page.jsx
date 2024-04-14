@@ -38,7 +38,7 @@ function Question() {
                         <div>
                             <h5 className="my-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{contact.email}</h5>
                         </div>
-                        <p className="my-3 font-normal text-gray-700 dark:text-gray-400">{contact.question}</p>
+                        <p className="my-3 font-normal text-gray-700 dark:text-gray-400">{contact.message}</p>
 
                         <div className="justify-self-start flex items-center space-x-3 ">
                             <a
