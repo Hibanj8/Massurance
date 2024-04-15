@@ -1,6 +1,6 @@
 FROM node:latest
 
-WORKDIR /app
+WORKDIR /massurance
 
 COPY package*.json ./
 
@@ -13,5 +13,5 @@ EXPOSE 3000
 CMD ["npm", "run", "dev"]
 
 
-# docker build -t Massurance .
-# docker run -p 5173:5173 -p 3000:3000 Massurance
+# docker build -t massurance .
+# docker run -p 5173:5173 -p 3000:3000 massurance
