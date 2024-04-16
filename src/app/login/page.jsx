@@ -26,8 +26,8 @@ const Page = () => {
         e.preventDefault();
         try {
             const response = await axios.post('http://localhost:3000/api/admin/login', values);
-            if (typeof window !== 'undefined') { 
-                localStorage.setItem("access_token", response.data.token); 
+            if (typeof window !== 'undefined' && window.localStorage) {
+                 localStorage.setItem("access_token", response.data.token); 
             } 
             const id = response.data.id
             const userResponse = await axios.get(`http://localhost:3000/api/admin/${id}`);
