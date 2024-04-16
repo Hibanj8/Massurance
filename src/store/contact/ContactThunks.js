@@ -1,13 +1,9 @@
 "use client"
-import { useEffect } from 'react';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-useEffect(() => {
-  const tokenFromLocalStorage = localStorage.getItem('access_token');
-  if (tokenFromLocalStorage) {
-    setToken(JSON.parse(tokenFromLocalStorage));
-  }
-}, []);
+
+const token = localStorage.getItem('access_token');
+
 export const createContact = createAsyncThunk(
   'contacts/createContact',
   async (contactData) => {

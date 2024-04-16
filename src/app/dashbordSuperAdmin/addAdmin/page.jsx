@@ -1,14 +1,12 @@
 "use client"
-import React, { useState ,useEffect} from 'react';
+import React, { useState } from 'react';
 import axios from 'axios'; 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-useEffect(() => {
-  const tokenFromLocalStorage = localStorage.getItem('access_token');
-  if (tokenFromLocalStorage) {
-    setToken(JSON.parse(tokenFromLocalStorage));
-  }
-}, []);
+
+const token = localStorage.getItem('access_token');
+
+
 const AddAdmin = () => {
   const [newAdmin, setNewAdmin] = useState({ name: '', email: '', password:'', role: ''});
   const apiUrl = 'http://localhost:3000';
