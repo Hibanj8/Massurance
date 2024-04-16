@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios'; 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-const token= localStorage.getItem('access_token');
+const token = window?.localStorage?.getItem('access_token') ? JSON.parse(localStorage.getItem('access_token')) : null;
 
 const AddAdmin = () => {
   const [newAdmin, setNewAdmin] = useState({ name: '', email: '', password:'', role: ''});

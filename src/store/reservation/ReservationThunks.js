@@ -1,7 +1,7 @@
 "use client"
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-const token= localStorage.getItem('access_token');
+const token = window?.localStorage?.getItem('access_token') ? JSON.parse(localStorage.getItem('access_token')) : null;
  
 export const fetchReservations = createAsyncThunk(
     'reservations/fetchReservations',
