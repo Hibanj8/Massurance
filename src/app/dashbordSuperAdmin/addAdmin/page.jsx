@@ -3,8 +3,12 @@ import React, { useState } from 'react';
 import axios from 'axios'; 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-const token = window?.localStorage?.getItem('access_token') ? JSON.parse(localStorage.getItem('access_token')) : null;
-
+useEffect(() => {
+  const tokenFromLocalStorage = localStorage.getItem('access_token');
+  if (tokenFromLocalStorage) {
+    setToken(JSON.parse(tokenFromLocalStorage));
+  }
+}, []);
 const AddAdmin = () => {
   const [newAdmin, setNewAdmin] = useState({ name: '', email: '', password:'', role: ''});
   const apiUrl = 'http://localhost:3000';

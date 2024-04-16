@@ -7,7 +7,12 @@ import { useSelector } from 'react-redux';
 const Admin = () => {
   const [admins, setAdmins] = useState([]);
   const apiUrl = 'http://localhost:3000';
-  const token= localStorage.getItem('access_token');
+  useEffect(() => {
+    const tokenFromLocalStorage = localStorage.getItem('access_token');
+    if (tokenFromLocalStorage) {
+      setToken(JSON.parse(tokenFromLocalStorage));
+    }
+  }, []);
   const loggedInUsername = useSelector((state) => state.admin.id);
   console.log(loggedInUsername);
 
