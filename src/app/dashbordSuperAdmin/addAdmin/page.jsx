@@ -1,17 +1,16 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios'; 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const token = localStorage.getItem('access_token');
 
 
 const AddAdmin = () => {
   const [newAdmin, setNewAdmin] = useState({ name: '', email: '', password:'', role: ''});
   const apiUrl = 'http://localhost:3000';
   const navigate = usePathname();
-
+  const [token ,setToken] = useState(null)
 
   const handleAddAdmin = async (e) => {
     e.preventDefault();
@@ -27,6 +26,11 @@ const AddAdmin = () => {
       console.error('Error adding admin:', error);
     }
   };
+
+  useEffect(() => {
+    const token = localStorage.getItem('access_token') || undefined;
+    setToken(token)
+  },[])
 
   return (
     <div className="flex items-center justify-center h-screen ">

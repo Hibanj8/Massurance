@@ -1,12 +1,13 @@
 "use client"
 import { createAsyncThunk  } from '@reduxjs/toolkit';
 import axios from 'axios';
-const token = localStorage.getItem('access_token');
+// const token = localStorage.getItem('access_token') || undefined;
 
 export const fetchReservations = createAsyncThunk(
     'reservations/fetchReservations',
     async () => {
       try {
+        token = localStorage.getItem('access_token') || undefined;
         const response = await axios.get(`http://localhost:3000/api/reservation`, {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -23,6 +24,7 @@ export const addReservation = createAsyncThunk(
   'reservations/addReservation',
   async (reservationData) => {
     try {
+      token = localStorage.getItem('access_token') || undefined;
       const response = await axios.post(`http://localhost:3000/api/reservation`, reservationData);
       return response.data;
     } catch (error) {
@@ -36,6 +38,7 @@ export const updateReservation = createAsyncThunk(
   'reservations/updateReservation',
   async ({ id, reservationData }) => {
     try {
+      token = localStorage.getItem('access_token') || undefined;
       const response = await axios.put(`http://localhost:3000/api/reservation/${id}`, reservationData, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -52,6 +55,7 @@ export const deleteReservation = createAsyncThunk(
   'reservations/deleteReservation',
   async (id) => {
     try {
+      token = localStorage.getItem('access_token') || undefined;
       await axios.delete(`http://localhost:3000/api/reservation/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,

@@ -2,12 +2,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const token = localStorage.getItem('access_token');
+// const token = localStorage.getItem('access_token') || undefined;
 
 export const createContact = createAsyncThunk(
   'contacts/createContact',
   async (contactData) => {
     try {
+      const token = localStorage.getItem('access_token') || undefined;
       const response = await axios.post(`http://localhost:3000/api/contact`, contactData);
       return response.data;
     } catch (error) {
@@ -20,6 +21,7 @@ export const fetchContacts = createAsyncThunk(
   'contacts/fetchContacts',
   async () => {
     try {
+      const token = localStorage.getItem('access_token') || undefined;
       const response = await axios.get(`http://localhost:3000/api/contact`, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -36,6 +38,7 @@ export const updateContact = createAsyncThunk(
   'contacts/updateContact',
   async ({ id, contactData }) => {
     try {
+      const token = localStorage.getItem('access_token') || undefined;
       const response = await axios.put(`http://localhost:3000/api/contact/${id}`, contactData , {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -52,6 +55,7 @@ export const deleteContact = createAsyncThunk(
   'contacts/deleteContact',
   async (id) => {
     try {
+      const token = localStorage.getItem('access_token') || undefined;
       await axios.delete(`http://localhost:3000/api/contact/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
