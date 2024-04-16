@@ -32,7 +32,7 @@ const Service = () => {
             }
           />
           <ServiceCard
-            title="Assurance Habitation :"
+            title="Assurance Habitation"
             details=" Nos solutions d'assurance habitation offrent une protection complète pour votre maison, votre contenu et votre responsabilité civile, afin que vous puissiez vous concentrer sur ce qui compte vraiment."
             icon={
               <img src="/icons/icon-habitation.png" alt="portfolio" className="w-10 h-10" />

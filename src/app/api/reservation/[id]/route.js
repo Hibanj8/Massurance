@@ -22,13 +22,13 @@ export async function GET(request , { params}) {
     }
 }
 
-export async function PUT(request) {
+export async function PUT(request , { params}) {
     try {
         await verifyToken(request);
     } catch (error) {
         return new Response(JSON.stringify({ message: error.message }), { status: error.status, headers: { 'Content-Type': 'application/json' } });
     }
-    const { id } = request.nextUrl.query;
+    const { id } = params;
     await connexion();
     try {
         const data = await request.json();
